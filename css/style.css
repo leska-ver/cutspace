@@ -1,0 +1,230 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/poppins-regular.woff2') format('woff2'), url('../fonts/poppins-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/poppins-bold.woff2') format('woff2'), url('../fonts/poppins-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-white: #fff;
+  --color-mineShaft: #323232;
+  --color-crusta: #f78434;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  /*Для .wrapper Это будет нужно для footer*/
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'Poppins', sans-serif;
+  /*Общий шрифт 400*/
+  font-weight: 400;
+  font-size: clamp(14px, 5vw, 16px);
+  line-height: clamp(22px, 5vw, 27px);
+  color: var(--color-mineShaft);
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  /* перенос слов */
+  word-wrap: break-word;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  /*стрелки у слайдера*/
+  background-color: inherit;
+  border: none;
+}
+
+.btn {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center; 
+  padding: 18px 39px;
+  border-radius: 29px;
+  font-weight: 700;
+  text-align: center;
+  background-color: var(--color-white);
+  cursor: pointer;  
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  z-index: 1;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-mineShaft);
+}
+
+.btn:hover {
+  color: var(--color-white);
+  background-color: var(--color-crusta);
+}
+
+.btn:active {
+  opacity: .7;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 43px;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-white);
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.btn:hover:before {
+  width: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+[data-container] {
+  /*1050px = 1110px + 50px + 50px не менять!*/
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 0 50px;
+  text-align: center;
+}  
+
+.h2 {
+  font-size: clamp(20px, 5vw, 30px);
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 6.8px;
+}
+
+.desc {
+  font-family: 'Poppins-Thin', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+} 
+
+
+svg {
+  height: 80px;
+  position: absolute;
+  width: 80px;
+}
+.plate {
+  height: 80px;
+  width: 80px;
+}
+.burger {
+  filter: url(#gooeyness);
+}
+.x {
+  transform: scale(0);
+  transition: transform 400ms;
+}
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50%;
+  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+.x .line {
+  stroke-width: 5.5px;
+}
+
+/* Die vierte teller */
+.plate4 .x {
+  transition: transform 400ms;
+}
+.plate4 .line {
+  transform-origin: 50%;
+  transition: transform 400ms 100ms;
+}
+.active.plate4 .line {
+  transition: transform 400ms;
+}
+.active.plate4 .line1 {
+  transform: translateX(18px) translateY(-3px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .line2 {
+  transform: translateX(-18px) translateY(-3px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line3 {
+  transform: translateY(0px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line4 {
+  transform: translateY(0px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .line5 {
+  transform: translateX(18px) translateY(3px) rotate(45deg) scale(.7);
+}
+.active.plate4 .line6 {
+  transform: translateX(-18px) translateY(3px) rotate(-45deg) scale(.7);
+}
+.active.plate4 .x {
+  transition: transform 400ms 100ms;
+  transform: scale(1);
+}
