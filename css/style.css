@@ -23,6 +23,7 @@
   --color-mercury: #e8e8e8;
   --color-alto: #d8d8d8;
   --color-whisper: #f5f6fa;
+  --color-scorpion: #606060;
 }
 
 html {
@@ -372,10 +373,13 @@ button {
 
 /*** header(Шапка)-1206px ***/
 .header {
-  position: relative;  
+  position: fixed;
   padding: 35px 0;
   background-color: var(--color-white);
-  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .header__container {
@@ -500,7 +504,7 @@ button {
 
 /*** Найди помещение home-1206px ***/
 .home {
-  padding-bottom: 45px;
+  padding: 113px 0 45px;
 }
 
 .home__container {
@@ -716,8 +720,11 @@ button {
 }
 
 .product__desc {
-  margin-bottom: 30px;
   padding-right: 20px;
+}
+
+.product__desc:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .product__buttons {
@@ -799,7 +806,7 @@ button {
   letter-spacing: .8px;
 }
 
-.server__item .server__desc {
+.server__item .server__desc:not(:last-child) {
   margin: 0 0 24px;
 }
 
@@ -812,7 +819,7 @@ button {
 
 /* О нас about-1440px */
 .about {
-  padding: 30px 0;
+  padding: 30px 0 61px;
 }
 
 .about__h2 {
@@ -824,6 +831,7 @@ button {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 0;
 }
 
@@ -836,6 +844,32 @@ button {
 .about__link {
   display: inline-block;
   margin-bottom: 13px;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;  
+  /* Для :hover */
+  transition-duration: 0s;
+  outline: none;
+}
+
+.about__link:focus circle, .is-active.about__link circle {
+  fill: #f78434;
+  fill-opacity: 1;
+}
+
+.about__link:focus path, .about__link:hover path, .is-active.about__link path, .about__link:focus ellipse, .about__link:hover ellipse, .is-active.about__link ellipse {
+  fill: #fff;
+}
+
+.about__link:hover circle {
+  fill: #58BEBF;
+  fill-opacity: 1;
+}   
+
+.about__link:active circle, .about__link:active path, .about__link:active ellipse {
+  opacity: .7;
 }
 
 .about__h3 {
@@ -846,6 +880,173 @@ button {
   margin: 0;
 }
 /* // О нас about-1440px */
+
+
+/* Отзывы reviews-1440px */
+.reviews {
+  padding: 61px 0 30px;
+}
+
+.reviews__container {
+  padding: 0 70px 0 28px;
+}
+
+.reviews__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 0 26px 0;
+  -webkit--gap: 30px 50px;
+  -moz--gap: 30px 50px;
+  gap: 30px 50px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.reviews__h2 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 454px;
+  flex: 0 1 454px;
+}
+
+.reviews__text {
+  color: var(--color-scorpion);
+  -webkit-box-flex: 0 1 398px;
+  -ms-flex: 0 1 398px;
+  flex: 0 1 398px;
+}
+
+.reviews__list {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -webkit--gap: 30px 40px;
+  -moz--gap: 30px 40px;
+  gap: 30px 40px;
+  -webkit-grid-template-columns: repeat(3, 1fr);
+  -o-grid-template-columns: repeat(3, 1fr);
+  -moz-grid-template-columns: repeat(3, 1fr);
+  -ms-grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+}
+
+.reviews__list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: url("../img/img-reviews/element.png") 0 0 no-repeat;
+  -webkit-transform: translate(50%,-50%);
+  -ms-transform: translate(50%,-50%);
+  transform: translate(50%,-50%);
+  z-index: 2;
+}
+
+.reviews__item {/*?*/
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-transition: all .3s ease 0s;
+  -o-transition: all .3s ease 0s;
+  transition: all .3s ease 0s;
+}
+
+.reviews__item:hover {
+  -webkit-box-shadow: 0px 10px 52px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 10px 52px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}  
+
+.reviews__imgBtn {
+  position: relative;
+  margin: 0 0 18px 0;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.reviews__imgBtn:hover .reviews__button {
+  display: block;
+}
+
+.reviews__button {
+  position: absolute;
+  right: 38px;
+  bottom: -7px;
+  display: none;
+  width: 50px;
+  height: 50px;
+  background: url("../img/img-reviews/playBtn.svg") center / cover no-repeat;
+  -webkit-transform: translate(50%,-50%);
+  -ms-transform: translate(50%,-50%);
+  transform: translate(50%,-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.reviews__padding {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 28px 32px;
+  flex: 1 1 auto;
+}
+
+.reviews__desc {
+  margin-bottom: 22px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.reviews__name {
+  font-size: clamp(14px, 5vw, 18px);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.reviews__city {
+  letter-spacing: 1.15px;
+  color: var(--color-fountainBlue);
+}
+
+.reviews__item:hover .reviews__city {
+  color: var(--color-crusta);
+}
+
+/* // Отзывы reviews-1440px */
 
 
 @media (max-width: 999px) {
@@ -938,6 +1139,11 @@ button {
     padding: 40px 20px;
     width: 100%;
   }
+
+
+  .about__item {
+    flex: 0 1 48%;
+  }
 }
 
 @media (max-width: 767px) { 
@@ -950,10 +1156,6 @@ button {
     width: 97%;
   }
 
-
-  .home {
-    padding: 25px 0;
-  }
 
   .home__container::before {
     right: 0;
@@ -1022,6 +1224,11 @@ button {
   .server {
     margin-top: -282px;
   }  
+
+
+  .about__list {
+    display: block;
+  }
 }
 
 @media (max-width: 444px) {
@@ -1087,7 +1294,11 @@ button {
 	width: 100%;
 	opacity: 0;
 	visibility: hidden;
-	transition: all 0.3s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .modal-fix {
@@ -1103,7 +1314,11 @@ button {
 .modal-overlay--visible {
 	opacity: 1;
 	visibility: visible;
-	transition: all 0.3s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
   z-index: 33;
 }
 
