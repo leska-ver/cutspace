@@ -87,6 +87,8 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; 
   padding: 18px 37px;
   border-radius: 29px;
@@ -267,7 +269,11 @@ button {
   bottom: 0;
   z-index: 999;
   /* // Для js перекрыть .modal*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -287,6 +293,8 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   flex-direction: column;
   flex-basis: 624px;
@@ -384,7 +392,11 @@ button {
 
 .header__container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -409,8 +421,12 @@ button {
 }
 
 .header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   justify-content: space-between;
   -webkit--gap: 7px 30px;
@@ -509,6 +525,8 @@ button {
 
 .home__container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-left: 48px;
   padding-bottom: 94px;
@@ -547,6 +565,8 @@ button {
 }
 
 .home__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -614,6 +634,8 @@ button {
   -webkit-column-gap: 25px;
   -moz-column-gap: 25px;
   column-gap: 25px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -639,7 +661,11 @@ button {
   position: absolute;
   bottom: 16%;
   left: 29%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 23px;
   padding: 22px 29px 22px;
@@ -691,6 +717,8 @@ button {
 }
 
 .product__padding {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   gap: 25px;
@@ -728,6 +756,8 @@ button {
 }
 
 .product__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -776,6 +806,8 @@ button {
 }
 
 .server__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
   padding: 0;
@@ -828,6 +860,8 @@ button {
 }
 
 .about__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
@@ -895,8 +929,6 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -944,14 +976,14 @@ button {
   right: 0;
   width: 80px;
   height: 80px;
-  background: url("../img/img-reviews/element.png") 0 0 no-repeat;
+  background: url("../img/img-reviews/element.png") center / cover no-repeat;
   -webkit-transform: translate(50%,-50%);
   -ms-transform: translate(50%,-50%);
   transform: translate(50%,-50%);
   z-index: 2;
 }
 
-.reviews__item {/*?*/
+.reviews__item {
   -ms-flex-line-pack: center;
   align-content: center;
   -webkit-box-pack: center;
@@ -991,6 +1023,10 @@ button {
   -ms-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+}
+
+.reviews__imgBtn img {
+  width: 100%;
 }
 
 .reviews__imgBtn:hover .reviews__button {
@@ -1144,6 +1180,27 @@ button {
   .about__item {
     flex: 0 1 48%;
   }
+
+
+  .reviews__button {
+    right: 28px;
+    bottom: -3px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .reviews__list {
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews__list::before {
+    width: 50px;
+    height: 50px;
+  }    
 }
 
 @media (max-width: 767px) { 
@@ -1229,6 +1286,11 @@ button {
   .about__list {
     display: block;
   }
+
+
+  .reviews__list {
+    display: block;
+  }
 }
 
 @media (max-width: 444px) {
@@ -1287,8 +1349,12 @@ button {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.7);
-	display: flex;
-	align-items: center;
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+	-webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 	justify-content: center;
 	height: 100vh;
 	width: 100%;
@@ -1305,8 +1371,12 @@ button {
 	background-color: #fff;
 	width: 300px;
 	height: 300px;
-	display: flex;
-	align-items: center;
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 	justify-content: center;
 	display: none;
 }
