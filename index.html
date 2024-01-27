@@ -18,6 +18,32 @@
   <title>CutSpace</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    // для Базы данных timeweb.ru
+    const formBaza = document.querySelector('.form');
+    if (formBaza) { // Обёртка if. Спасение Gulp-а от null в браузере
+      $(function () {
+        $('.form-button').on('click', function () {
+          let data = {
+            // 'name': $('[name="name"]').val(),
+            // 'tel': $('[name="tel"]').val(),
+            'email': $('[name="email"]').val(),
+            // 'message': $('[name="message"]').val()
+          };
+          $.post('mail.php', data, function (response) {
+            if (response == 1) {
+              // $('[name="name"]').val('');
+              // $('[name="tel"]').val('');
+              $('[name="email"]').val('');
+              // $('[name="message"]').val('');
+            }
+          })
+
+          return false;
+        });
+      });
+    };
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -82,6 +108,7 @@
         </div>
       </section>
       <section class="logos">
+        <h2 class="visually-hidden">Я для семантики</h2>
         <div class="logos__container">
           <ul class="logos__list">
             <li class="logos__item">
@@ -312,9 +339,6 @@
                 <p class="reviews__desc desc">
                   "Omne animal, simul atque integre iudicante itaque earum motus et."
                 </p>
-                <p class="reviews__desc desc">
-                  "Omne animal, simul atque integre iudicante itaque earum motus et."
-                </p>
                 <div class="reviews__name">Arend Pellewever</div>
                 <span class="reviews__city">Baltimore</span>
               </div>
@@ -347,10 +371,120 @@
             </li>
           </ul>
         </div>
-      </section>        
+      </section> 
+      <section class="expert">
+        <div class="expert__container">
+          <div class="expert__info">
+            <h2 class="expert__h2 h2">
+              Get experience from the expert
+            </h2>
+            <p class="expert__text desc">
+              Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut aliquid ex
+            </p>
+            <a class="expert__link btn" href="#" target="_blank">Contact Us</a>
+          </div> 
+          <div class="expert__img">
+            <img src="img/expert.png" alt="Девушка эксперт">
+          </div>
+        </div>
+      </section>         
     </main>  
     <footer class="footer">
-      <div class="footer__container"></div>
+      <h2 class="visually-hidden">Я для семантики</h2>
+      <div class="footer__container">
+        <div class="footer__left">
+          <a class="header__logo" href="#">
+            <img class="header__logo-img" src="img/logo.png" alt="Логотип CutSpace">
+          </a>
+          <p class="footer__desc desc">
+            Quae fuerit causa, nollem me ab illo inventore veritatis et.
+          </p>
+          <nav class="footer__nav">
+            <ul class="footer__list-icone">
+              <li class="footer__item-icone">
+                <a class="footer__link-icone" href="https://facebook.com/" target="blank">
+                  <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00231934 0H20V20H0.00231934V0Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.896 3.70598e-08H1.10305C0.493789 0.000312537 -0.000156213 0.494531 3.70598e-08 1.10398V18.897C0.000312537 19.5062 0.494531 20.0002 1.10398 20H18.896C19.5056 20.0002 19.9998 19.5061 20 18.8965C20 18.8963 20 18.8962 20 18.896V1.10305C19.9997 0.493789 19.5055 -0.000156213 18.896 3.70598e-08Z" fill="#4267B2"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8086 20V12.2657H16.416L16.8066 9.23832H13.8086V7.31023C13.8086 6.43574 14.0514 5.83988 15.3053 5.83988H16.8945V3.13953C16.618 3.10277 15.6694 3.02051 14.5656 3.02051C12.2609 3.02051 10.6836 4.42676 10.6836 7.01039V9.23832H8.08594V12.2657H10.6836V20H13.8086Z" fill="white"/>
+                  </svg>
+                </a>
+              </li>   
+              <li class="footer__item-icone">
+                <a class="footer__link-icone" href="https://twitter.com/" target="blank">
+                  <svg width="25" height="20" viewbox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.05176e-05 0.043457H24.4606V19.9618H-3.05176e-05V0.043457Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.65977 19.9616C16.9089 19.9616 21.9666 12.2992 21.9666 5.65478C21.9666 5.43727 21.9621 5.22053 21.9523 5.0049C22.9341 4.29521 23.7874 3.4094 24.4606 2.40106C23.5596 2.80163 22.5899 3.07103 21.573 3.19281C22.611 2.57027 23.4082 1.58557 23.784 0.411611C22.8125 0.987534 21.7365 1.40605 20.591 1.63199C19.6736 0.654776 18.367 0.043457 16.9205 0.043457C14.1437 0.043457 11.892 2.29521 11.892 5.07099C11.892 5.46576 11.936 5.84945 12.0224 6.21761C7.84317 6.00739 4.13742 4.00667 1.65761 0.963937C1.22581 1.70715 0.976792 2.57046 0.976792 3.49147C0.976792 5.23588 1.86466 6.77607 3.21435 7.67684C2.38941 7.65156 1.61454 7.42504 0.93708 7.04811C0.936312 7.06931 0.936312 7.08969 0.936312 7.11219C0.936312 9.54753 2.6695 11.5809 4.97056 12.0415C4.54806 12.1564 4.10331 12.2184 3.64466 12.2184C3.32111 12.2184 3.006 12.1866 2.69948 12.1277C3.33967 14.1257 5.19612 15.5795 7.39694 15.6201C5.67593 16.9691 3.50773 17.7726 1.15161 17.7726C0.746192 17.7726 0.345617 17.7494 -0.0480042 17.7031C2.17732 19.1294 4.8201 19.9618 7.65996 19.9618" fill="#1DA1F2"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__item-icone">
+                <a class="footer__link-icone" href="https://www.youtube.com/" target="blank">
+                  <svg width="30" height="20" viewbox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.511719 0H29.0319V19.9713H0.511719V0Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M28.4442 3.12501C28.1154 1.90306 27.152 0.939889 25.9305 0.610864C23.6984 0 14.77 0 14.77 0C14.77 0 5.84173 0 3.60964 0.587577C2.41143 0.916379 1.42452 1.90329 1.09572 3.12501C0.508362 5.35688 0.508362 9.98563 0.508362 9.98563C0.508362 9.98563 0.508362 14.6377 1.09572 16.8463C1.42474 18.068 2.38792 19.0314 3.60987 19.3604C5.86524 19.9713 14.7702 19.9713 14.7702 19.9713C14.7702 19.9713 23.6984 19.9713 25.9305 19.3837C27.1523 19.0549 28.1154 18.0915 28.4445 16.8697C29.0318 14.6377 29.0318 10.0091 29.0318 10.0091C29.0318 10.0091 29.0553 5.35688 28.4442 3.12501Z" fill="#FF0000"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9273 14.2619L19.3517 9.98568L11.9273 5.70947V14.2619Z" fill="white"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="footer__item-icone">
+                <a class="footer__link-icone footer__link-icone_linkedin" href="https://www.linkedin.com/" target="blank">
+                  <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="0" fill="transparent"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.296844 19.9752H4.7766V6.49731H0.296844V19.9752Z" fill="#006699"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.56633 0C1.03396 0 0.0320435 1.0062 0.0320435 2.32878C0.0320435 3.62212 1.00413 4.65706 2.50747 4.65706H2.53666C4.09902 4.65706 5.07127 3.62212 5.07127 2.32878C5.04208 1.0062 4.09902 0 2.56633 0Z" fill="#006699"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7727 6.18115C13.3957 6.18115 12.3307 7.48744 11.7353 8.40593V6.49748H7.25543V19.9753H11.7352V12.4487C11.7352 12.0458 11.7643 11.6435 11.8827 11.3554C12.2065 10.5507 12.9436 9.71715 14.1811 9.71715C15.8021 9.71715 16.4506 10.9532 16.4506 12.765V19.9753H20.93V12.2473C20.93 8.10748 18.7199 6.18115 15.7727 6.18115Z" fill="#006699"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__right">
+          <ul class="footer__right-list">
+            <li class="footer__right-item">Privacy</li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Si sine causa</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Quae fuerit causa</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Certe, inquam</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Torquatos nostros? </a>
+            </li>
+          </ul>
+          <ul class="footer__right-list">
+            <li class="footer__right-item">Legal</li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Ut placet, inquam </a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Certe, inquam</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Et quidem rerum</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">At vero eos et</a>
+            </li>
+          </ul>
+          <ul class="footer__right-list">
+            <li class="footer__right-item">Contact</li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Primum igitur</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Certe, inquam</a>
+            </li>
+            <li class="footer__right-item">
+              <a class="footer__right-link" href="#">Quae fuerit causa</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer> 
     <div class="modals">
       <!-- Шаблон микс modal СПАСИБО-01/-Реставрация лакокрасочного покрытия- -->

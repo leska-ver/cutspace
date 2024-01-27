@@ -1,8 +1,8 @@
 <?
   // Подключение "Базы данных", тот же код. ПРОФИ КОД. Скопировали и закинули в файл list.php
   // Исправляем код на своё ci54422_elochka 1GmHsZV
-  $dbname = 'ci54422_sitipro';//Из сайта имя "Базы данных MySQL"/
-  $dbuser = 'ci54422_sitipro';//Из сайта имя "Базы данных MySQL"/
+  $dbname = 'ci54422_cutspace';//Из сайта имя "Базы данных MySQL"/
+  $dbuser = 'ci54422_cutspace';//Из сайта имя "Базы данных MySQL"/
   $dbpass = '1GmHsZV';//Пароль из сайта "Базы данных". Пароль не менять! Он должен быть един для всех проектов!/
   $pdo = new PDO("mysql:host=localhost;dbname=$dbname", $dbuser, $dbpass);
 
