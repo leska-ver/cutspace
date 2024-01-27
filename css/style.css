@@ -1239,6 +1239,20 @@ button {
   -o-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }
+
+.footer__right-link:focus {
+  outline: none;
+  border-bottom: 1px solid var(--color-fountainBlue);
+  color: var(--color-fountainBlue);
+}
+
+.footer__right-link:hover {
+  color: var(--color-crusta);
+}
+
+.footer__right-link:active {
+  opacity: .7;
+}
 /* // Подвал footer-1440px */
 
 
