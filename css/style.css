@@ -433,7 +433,7 @@ button {
   -moz--gap: 7px 30px;
   gap: 7px 30px;
   margin: 0;
-  padding: 0;
+  padding-left: 0;
 }
 
 .header__item:not(:last-child) {
@@ -594,7 +594,7 @@ button {
   -webkit--gap: 40px;
   -moz--gap: 40px;
   gap: 40px;
-  padding: 0;
+  padding-left: 0;
 }
 
 .logos__img {
@@ -810,7 +810,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   gap: 30px;
-  padding: 0;
+  padding-left: 0;
 }
 
 .server__item {
@@ -866,7 +866,7 @@ button {
   gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0;
+  padding-left: 0;
 }
 
 .about__item {
@@ -966,7 +966,7 @@ button {
   -moz-grid-template-columns: repeat(3, 1fr);
   -ms-grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  padding: 0;
+  padding-left: 0;
 }
 
 .reviews__list::before {
@@ -1185,7 +1185,7 @@ button {
   -moz--gap: 28.5px;
   gap: 28.5px;
   align-items: center;
-  padding: 0;
+  padding-left: 0;
 }
 
 .footer__link-icone {
@@ -1218,7 +1218,7 @@ button {
 }
 
 .footer__right-list {
-  padding: 0;
+  padding-left: 0;
 }
 
 .footer__right-list > .footer__right-item:first-child {
